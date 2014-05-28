@@ -41,7 +41,7 @@ server {
     server {
         listen 80;
         server_name <%= @resource.server %>;
-        return 301 https://<%= @resource.server %>$request_uri;
+        rewrite ^ https://$server_name$request_uri permanent;
     }
 
     <% end %>
