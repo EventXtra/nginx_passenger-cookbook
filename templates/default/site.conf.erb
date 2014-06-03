@@ -1,7 +1,7 @@
 <% if @cert_exists %>
 
 server {
-    listen 443 ssl;
+    listen 443 ssl<%= @resource.spdy ? ' spdy' : '' %>;
     ssl on;
     server_name <%= @resource.server %>;
 
