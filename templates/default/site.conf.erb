@@ -55,6 +55,13 @@ server {
 
         client_max_body_size <%= @resource.max_body_size || node.nginx_passenger.site_max_body_size %>;
     }
+
+    location ~ ^/(assets)/ {
+        root <%= @resource.dir %>/public;
+        gzip_static on; # to serve pre-gzipped version
+        expires max;
+        add_header Cache-Control public;
+    }
 }
 
     <% if !@resource.http && node.nginx_passenger.redirect_to_https %>
