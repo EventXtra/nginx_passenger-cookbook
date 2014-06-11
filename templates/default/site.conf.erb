@@ -69,7 +69,7 @@ server {
     server {
         listen 80;
         server_name <%= @resource.server %>;
-        rewrite ^ https://$server_name$request_uri 302;
+        rewrite ^ https://$server_name$request_uri;
     }
 
     <% end %>
