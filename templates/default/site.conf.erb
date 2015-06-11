@@ -6,6 +6,8 @@ server {
     server_name <%= @resource.server %>;
     server_tokens off; # hide nginx version in header
 
+    large_client_header_buffers 4 64k;
+
     ssl_certificate <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.cert;
     ssl_certificate_key <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.key;
     ssl_trusted_certificate <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.trusted.cert;
