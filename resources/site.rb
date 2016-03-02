@@ -9,6 +9,7 @@ attribute :cert,              :kind_of => String
 attribute :generate_cert,     :kind_of => [TrueClass,FalseClass], :default => false
 attribute :http,              :kind_of => [TrueClass,FalseClass], :default => false
 attribute :spdy,              :kind_of => [TrueClass,FalseClass], :default => false
+attribute :show_version,      :kind_of => String, :default => 'off'
 attribute :template,          :kind_of => String
 attribute :min_instances,     :kind_of => Integer
 attribute :max_body_size,     :kind_of => String
