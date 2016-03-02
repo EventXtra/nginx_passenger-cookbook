@@ -104,6 +104,8 @@ server {
         passenger_user "<%= @resource.user %>";
         <% end %>
 
+        passenger_show_version_in_header <%= @resource.show_version %>;
+
         passenger_min_instances <%= @resource.min_instances || node.nginx_passenger.site_min_instances %>;
 
         client_max_body_size <%= @resource.max_body_size || node.nginx_passenger.site_max_body_size %>;
