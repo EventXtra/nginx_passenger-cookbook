@@ -8,10 +8,8 @@ server {
 
     large_client_header_buffers 4 64k;
 
-    ssl_certificate <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.cert;
-    ssl_certificate_key <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.key;
-    ssl_trusted_certificate <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.trusted.cert;
-    ssl_dhparam <%= node.nginx_passenger.certs_dir %>/<%= @resource.name %>.dhparam.pem;
+    ssl_certificate /etc/ssl/fullchain.crt;
+    ssl_certificate_key /etc/ssl/private.key;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
 
