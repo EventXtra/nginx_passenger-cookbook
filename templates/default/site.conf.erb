@@ -8,8 +8,8 @@ server {
 
     large_client_header_buffers 4 64k;
 
-    ssl_certificate /etc/ssl/fullchain.crt;
-    ssl_certificate_key /etc/ssl/private.key;
+    ssl_certificate /etc/letsencrypt/live/<%= @resource.server %>/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/<%= @resource.server %>/privkey.pem;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
 
