@@ -1,7 +1,8 @@
 actions :delete
 default_action :create
 attribute :name,          :kind_of => String
-attribute :server,        :kind_of => String
+attribute :domain,        :kind_of => String
+attribute :servers,       :kind_of => String
 attribute :rails_env,     :kind_of => String
 attribute :dir,           :kind_of => String
 attribute :ruby,          :kind_of => String
