@@ -3,13 +3,13 @@
 server {
     listen 443 ssl<%= @resource.spdy ? ' spdy' : '' %>;
     ssl on;
-    server_name <%= @resource.server %>;
+    server_name <%= @resource.servers %>;
     server_tokens off; # hide nginx version in header
 
     large_client_header_buffers 4 64k;
 
-    ssl_certificate /etc/letsencrypt/live/<%= @resource.server %>/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/<%= @resource.server %>/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/<%= @resource.domain %>/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/<%= @resource.domain %>/privkey.pem;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
 
@@ -87,7 +87,7 @@ server {
 
     server {
         listen 80;
-        server_name <%= @resource.server %>;
+        server_name <%= @resource.servers %>;
         rewrite ^ https://$server_name$request_uri;
     }
 
@@ -99,7 +99,7 @@ server {
 
 server {
     listen 80;
-    server_name <%= @resource.server %>;
+    server_name <%= @resource.servers %>;
 
     access_log <%= node.nginx_passenger.log_dir %>/<%= @resource.name %>.access.log <%= @log_format %>;
     error_log <%= node.nginx_passenger.log_dir %>/<%= @resource.name %>.error.log;
