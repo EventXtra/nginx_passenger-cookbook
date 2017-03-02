@@ -1,7 +1,7 @@
 <% if @cert_exists %>
 
 server {
-    listen 443 ssl<%= @resource.spdy ? ' spdy' : '' %>;
+    listen 443 ssl<%= @resource.spdy ? ' http2' : '' %>;
     server_name <%= @resource.servers %>;
     server_tokens off; # hide nginx version in header
 
